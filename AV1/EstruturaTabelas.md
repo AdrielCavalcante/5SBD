@@ -1,5 +1,5 @@
 # TABELA CLIENTES:
-```
+```sql
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE IF NOT EXISTS `clientes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 ```
 
 # TABELA ENDEREÇOS:
-```
+```sql
 DROP TABLE IF EXISTS `enderecos`;
 CREATE TABLE IF NOT EXISTS `enderecos` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `enderecos` (
 ```
 
 # TABELA PRODUTOS:
-```
+```sql
 DROP TABLE IF EXISTS `produtos`;
 CREATE TABLE IF NOT EXISTS `produtos` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `produtos` (
 ```
 
 # TABELA ESTOQUES:
-```
+```sql
 DROP TABLE IF EXISTS `estoques`;
 CREATE TABLE IF NOT EXISTS `estoques` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -58,14 +58,14 @@ CREATE TABLE IF NOT EXISTS `estoques` (
 ```
 
 # TABELA PEDIDOS:
-```
+```sql
 DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE IF NOT EXISTS `pedidos` (
   `id` varchar(50) NOT NULL,
   `dataPedido` DATETIME NOT NULL,
   `dataPagamento` DATETIME NOT NULL,
   `moeda` varchar(3) NULL,
-  `valorTotal` decimal(10,2) NOT NULL,
+  `valorTotal` decimal(10,2) NULL,
   `id_cliente` int NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id_cliente`) REFERENCES clientes(`id`)
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
 ```
 
 # TABELA ITENS PEDIDOS:
-```
+```sql
 DROP TABLE IF EXISTS `itempedido`;
 CREATE TABLE IF NOT EXISTS `itempedido` (
   `id` varchar(50) NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `itempedido` (
 ```
 
 # TABELA MOVIMENTACOES:
-```
+```sql
 DROP TABLE IF EXISTS `movimentacoes`;
 CREATE TABLE IF NOT EXISTS `movimentacoes` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -100,5 +100,24 @@ CREATE TABLE IF NOT EXISTS `movimentacoes` (
   INDEX idx_pedido_produto (`id_pedido`, `id_produto`),
   FOREIGN KEY (`id_pedido`) REFERENCES pedidos(`id`),
   FOREIGN KEY (`id_produto`) REFERENCES produtos(`id`)
+);
+```
+
+# ADICIONANDO STATUS EM PEDIDO
+```sql
+ALTER TABLE pedidos
+ADD COLUMN status ENUM('Pendente', 'Em andamento', 'Concluído', 'Faltando produto', 'Compra realizada') NOT NULL DEFAULT 'Pendente' AFTER valorTotal;
+```
+
+# ADICIONANDO STATUS EM PEDIDO
+```sql
+DROP TABLE IF EXISTS `compras`;
+CREATE TABLE IF NOT EXISTS `compras` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `quantidade` INT NOT NULL,
+    `data_compra` DATETIME NOT NULL,
+    `id_produto` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`id_produto`) REFERENCES produtos(`id`)
 );
 ```
