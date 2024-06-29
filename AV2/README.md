@@ -23,7 +23,7 @@ $ php artisan migrate
 ```
 
 Link para acessar o Swagger, durante execução:
-![http://127.0.0.1:8000/api/docs#](http://127.0.0.1:8000/api/docs#)
+<http://127.0.0.1:8000/api/docs#>
 
 ---
 
@@ -46,4 +46,4 @@ $ node index.js
 ```
 
 Link para acessar o JSON Fake, durante execução:
-![http://localhost:3000/carga](http://localhost:3000/carga)
+<http://localhost:3000/carga>
