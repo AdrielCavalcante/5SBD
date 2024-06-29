@@ -1,0 +1,2516 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "APIs do BazarTemTudo",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Lista todos os clientes",
+                "operationId": "f8eafbc2e9500413091c7f84a4470b84",
+                "responses": {
+                    "200": {
+                        "description": "Lista de clientes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "nome": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            },
+                                            "updated_at": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Criar um novo cliente",
+                "operationId": "2a8a28c7aec782e1af95193a65053e68",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "telefone": {
+                                        "type": "string"
+                                    },
+                                    "cpf": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cliente criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "telefone": {
+                                            "type": "string"
+                                        },
+                                        "cpf": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/clientes/{id}": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Buscar cliente pelo ID",
+                "operationId": "7be647ff4c2ab71c5a1f042133b13428",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cliente encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "telefone": {
+                                            "type": "string"
+                                        },
+                                        "cpf": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cliente não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Atualizar um cliente pelo ID",
+                "operationId": "1cc735d14964cb4b25557d546e807a9c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "telefone": {
+                                        "type": "string"
+                                    },
+                                    "cpf": {
+                                        "type": "string"
+                                    },
+                                    "created_at": {
+                                        "type": "string"
+                                    },
+                                    "updated_at": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cliente atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "telefone": {
+                                            "type": "string"
+                                        },
+                                        "cpf": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cliente não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Deletar um cliente pelo ID",
+                "operationId": "fae533cf0841c3ece1414287d89ef42b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Cliente deletado com sucesso"
+                    },
+                    "404": {
+                        "description": "Cliente não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/compras": {
+            "get": {
+                "tags": [
+                    "Compras"
+                ],
+                "summary": "Lista todas as compras",
+                "operationId": "aec9e7fb057675eed94ae46fbd5141d2",
+                "responses": {
+                    "200": {
+                        "description": "Lista de compras",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "produto_id": {
+                                                "type": "integer"
+                                            },
+                                            "quantidade": {
+                                                "type": "integer"
+                                            },
+                                            "valor_unitario": {
+                                                "type": "number",
+                                                "format": "float"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Compras"
+                ],
+                "summary": "Criar uma nova compra",
+                "operationId": "7d7b7f238f2bb0700c471ad967038783",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "data_compra": {
+                                        "type": "string",
+                                        "example": "2024-06-29"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Compra criada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "produto_id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "valor_unitario": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/compras/{id}": {
+            "get": {
+                "tags": [
+                    "Compras"
+                ],
+                "summary": "Buscar compra pelo ID",
+                "operationId": "eb792743dd58e05d18b39a2a74baab1a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da compra",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Compra encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "produto_id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "valor_unitario": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Compra não encontrada"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Compras"
+                ],
+                "summary": "Atualizar uma compra pelo ID",
+                "operationId": "afb28af3455da6c059dd42998cf42b6f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da compra",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "data_compra": {
+                                        "type": "string",
+                                        "example": "2024-06-29"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    },
+                                    "created_at": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "updated_at": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Compra atualizada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "data_compra": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Compra não encontrada"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Compras"
+                ],
+                "summary": "Deletar uma compra pelo ID",
+                "operationId": "636a698916c48c3e311b0cbc074367c0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da compra",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Compra deletada com sucesso"
+                    },
+                    "404": {
+                        "description": "Compra não encontrada"
+                    }
+                }
+            }
+        },
+        "/api/enderecos": {
+            "get": {
+                "tags": [
+                    "Enderecos"
+                ],
+                "summary": "Lista todos os endereços",
+                "operationId": "3187938c343b2d7b76ed175ecba9b417",
+                "responses": {
+                    "200": {
+                        "description": "Lista de endereços",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "nivel_servico_envio": {
+                                                "type": "string",
+                                                "example": "Express"
+                                            },
+                                            "endereco_envio_linha1": {
+                                                "type": "string",
+                                                "example": "Rua A, 123"
+                                            },
+                                            "endereco_envio_linha2": {
+                                                "type": "string",
+                                                "example": "Apt 101"
+                                            },
+                                            "endereco_envio_linha3": {
+                                                "type": "string",
+                                                "example": "Bloco B"
+                                            },
+                                            "cidade_envio": {
+                                                "type": "string",
+                                                "example": "São Paulo"
+                                            },
+                                            "estado_envio": {
+                                                "type": "string",
+                                                "example": "SP"
+                                            },
+                                            "codigo_postal_envio": {
+                                                "type": "string",
+                                                "example": "12345-678"
+                                            },
+                                            "pais_envio": {
+                                                "type": "string",
+                                                "example": "Brasil"
+                                            },
+                                            "id_cliente": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            },
+                                            "updated_at": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Enderecos"
+                ],
+                "summary": "Criar um novo endereço",
+                "operationId": "4554fd24c6358cd5168606ab307b0360",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nivel_servico_envio": {
+                                        "type": "string",
+                                        "example": "Express"
+                                    },
+                                    "endereco_envio_linha1": {
+                                        "type": "string",
+                                        "example": "Rua A, 123"
+                                    },
+                                    "endereco_envio_linha2": {
+                                        "type": "string",
+                                        "example": "Apt 101"
+                                    },
+                                    "endereco_envio_linha3": {
+                                        "type": "string",
+                                        "example": "Bloco B"
+                                    },
+                                    "cidade_envio": {
+                                        "type": "string",
+                                        "example": "São Paulo"
+                                    },
+                                    "estado_envio": {
+                                        "type": "string",
+                                        "example": "SP"
+                                    },
+                                    "codigo_postal_envio": {
+                                        "type": "string",
+                                        "example": "12345-678"
+                                    },
+                                    "pais_envio": {
+                                        "type": "string",
+                                        "example": "Brasil"
+                                    },
+                                    "id_cliente": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Endereço criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nivel_servico_envio": {
+                                            "type": "string",
+                                            "example": "Express"
+                                        },
+                                        "endereco_envio_linha1": {
+                                            "type": "string",
+                                            "example": "Rua A, 123"
+                                        },
+                                        "endereco_envio_linha2": {
+                                            "type": "string",
+                                            "example": "Apt 101"
+                                        },
+                                        "endereco_envio_linha3": {
+                                            "type": "string",
+                                            "example": "Bloco B"
+                                        },
+                                        "cidade_envio": {
+                                            "type": "string",
+                                            "example": "São Paulo"
+                                        },
+                                        "estado_envio": {
+                                            "type": "string",
+                                            "example": "SP"
+                                        },
+                                        "codigo_postal_envio": {
+                                            "type": "string",
+                                            "example": "12345-678"
+                                        },
+                                        "pais_envio": {
+                                            "type": "string",
+                                            "example": "Brasil"
+                                        },
+                                        "id_cliente": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/enderecos/{id}": {
+            "get": {
+                "tags": [
+                    "Enderecos"
+                ],
+                "summary": "Buscar endereço pelo ID",
+                "operationId": "c8958d01e7aa86f22fd6fce07c6eafb7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do endereço",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Endereço encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nivel_servico_envio": {
+                                            "type": "string",
+                                            "example": "Express"
+                                        },
+                                        "endereco_envio_linha1": {
+                                            "type": "string",
+                                            "example": "Rua A, 123"
+                                        },
+                                        "endereco_envio_linha2": {
+                                            "type": "string",
+                                            "example": "Apt 101"
+                                        },
+                                        "endereco_envio_linha3": {
+                                            "type": "string",
+                                            "example": "Bloco B"
+                                        },
+                                        "cidade_envio": {
+                                            "type": "string",
+                                            "example": "São Paulo"
+                                        },
+                                        "estado_envio": {
+                                            "type": "string",
+                                            "example": "SP"
+                                        },
+                                        "codigo_postal_envio": {
+                                            "type": "string",
+                                            "example": "12345-678"
+                                        },
+                                        "pais_envio": {
+                                            "type": "string",
+                                            "example": "Brasil"
+                                        },
+                                        "id_cliente": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Endereço não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Enderecos"
+                ],
+                "summary": "Atualizar um endereço pelo ID",
+                "operationId": "539c792dbe0ad9ca638e7816c59fdb2f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do endereço",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "nivel_servico_envio": {
+                                        "type": "string",
+                                        "example": "Express"
+                                    },
+                                    "endereco_envio_linha1": {
+                                        "type": "string",
+                                        "example": "Rua A, 123"
+                                    },
+                                    "endereco_envio_linha2": {
+                                        "type": "string",
+                                        "example": "Apt 101"
+                                    },
+                                    "endereco_envio_linha3": {
+                                        "type": "string",
+                                        "example": "Bloco B"
+                                    },
+                                    "cidade_envio": {
+                                        "type": "string",
+                                        "example": "São Paulo"
+                                    },
+                                    "estado_envio": {
+                                        "type": "string",
+                                        "example": "SP"
+                                    },
+                                    "codigo_postal_envio": {
+                                        "type": "string",
+                                        "example": "12345-678"
+                                    },
+                                    "pais_envio": {
+                                        "type": "string",
+                                        "example": "Brasil"
+                                    },
+                                    "id_cliente": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "created_at": {
+                                        "type": "string"
+                                    },
+                                    "updated_at": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Endereço atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nivel_servico_envio": {
+                                            "type": "string",
+                                            "example": "Express"
+                                        },
+                                        "endereco_envio_linha1": {
+                                            "type": "string",
+                                            "example": "Rua A, 123"
+                                        },
+                                        "endereco_envio_linha2": {
+                                            "type": "string",
+                                            "example": "Apt 101"
+                                        },
+                                        "endereco_envio_linha3": {
+                                            "type": "string",
+                                            "example": "Bloco B"
+                                        },
+                                        "cidade_envio": {
+                                            "type": "string",
+                                            "example": "São Paulo"
+                                        },
+                                        "estado_envio": {
+                                            "type": "string",
+                                            "example": "SP"
+                                        },
+                                        "codigo_postal_envio": {
+                                            "type": "string",
+                                            "example": "12345-678"
+                                        },
+                                        "pais_envio": {
+                                            "type": "string",
+                                            "example": "Brasil"
+                                        },
+                                        "id_cliente": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Endereço não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Enderecos"
+                ],
+                "summary": "Deletar um endereço pelo ID",
+                "operationId": "794a18140dadd49a8a5dc66949cd1201",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do endereço",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Endereço deletado com sucesso"
+                    },
+                    "404": {
+                        "description": "Endereço não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/estoques": {
+            "get": {
+                "tags": [
+                    "Estoques"
+                ],
+                "summary": "Lista todos os estoques",
+                "operationId": "ac5cfb4bb8f7a12c6f6459bd65764293",
+                "responses": {
+                    "200": {
+                        "description": "Lista de estoques",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "quantidade": {
+                                                "type": "integer"
+                                            },
+                                            "id_produto": {
+                                                "type": "integer"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            },
+                                            "updated_at": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Estoques"
+                ],
+                "summary": "Adicionar um novo item ao estoque",
+                "operationId": "3ecfb48be7cfdb7f095095ac2e520653",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Item adicionado ao estoque com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/estoques/{id}": {
+            "get": {
+                "tags": [
+                    "Estoques"
+                ],
+                "summary": "Buscar item do estoque pelo ID",
+                "operationId": "5f6b53324837052f1417b66ed2a29061",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do item do estoque",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Item do estoque encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Item do estoque não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Estoques"
+                ],
+                "summary": "Atualizar um item do estoque pelo ID",
+                "operationId": "78703aacf8002fc34d59b5af482f8368",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do item do estoque",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    },
+                                    "created_at": {
+                                        "type": "string"
+                                    },
+                                    "updated_at": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Item do estoque atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Item do estoque não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Estoques"
+                ],
+                "summary": "Remover um item do estoque pelo ID",
+                "operationId": "49ebed0b5543a2840555aa6f2331662c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do item do estoque",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Item do estoque removido com sucesso"
+                    },
+                    "404": {
+                        "description": "Item do estoque não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/item-pedidos": {
+            "get": {
+                "tags": [
+                    "Itens de Pedido"
+                ],
+                "summary": "Lista todos os itens de pedidos",
+                "operationId": "81a4de4f92c914cb7e32e7b914816f1a",
+                "responses": {
+                    "200": {
+                        "description": "Lista de itens de pedidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "valor": {
+                                                "type": "number",
+                                                "format": "float"
+                                            },
+                                            "quantidade": {
+                                                "type": "integer"
+                                            },
+                                            "id_pedido": {
+                                                "type": "integer"
+                                            },
+                                            "id_produto": {
+                                                "type": "integer"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            },
+                                            "updated_at": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Itens de Pedido"
+                ],
+                "summary": "Adicionar um novo item ao pedido",
+                "operationId": "75ee5324a2b1439b95ef71751df4c60f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "valor": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "id_pedido": {
+                                        "type": "integer"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Item adicionado ao pedido com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "valor": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "id_pedido": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/item-pedidos/{id}": {
+            "get": {
+                "tags": [
+                    "Itens de Pedido"
+                ],
+                "summary": "Buscar item de pedido pelo ID",
+                "operationId": "24480b1bdb99137409a0b2070140473e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do item de pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Item de pedido encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "valor": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "id_pedido": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Item de pedido não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Itens de Pedido"
+                ],
+                "summary": "Atualizar um item de pedido pelo ID",
+                "operationId": "45e8e592bb13eeef0fc93272ffd31f22",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do item de pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "valor": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "id_pedido": {
+                                        "type": "integer"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    },
+                                    "created_at": {
+                                        "type": "string"
+                                    },
+                                    "updated_at": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Item de pedido atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "valor": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "id_pedido": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Item de pedido não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Itens de Pedido"
+                ],
+                "summary": "Remover um item de pedido pelo ID",
+                "operationId": "947f416d6ff716d8340bfef6cde95fe3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do item de pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Item de pedido removido com sucesso"
+                    },
+                    "404": {
+                        "description": "Item de pedido não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/movimentacoes": {
+            "get": {
+                "tags": [
+                    "Movimentações"
+                ],
+                "summary": "Lista todas as movimentações",
+                "operationId": "85344b365c8318d06a2b93c9acf9d97f",
+                "responses": {
+                    "200": {
+                        "description": "Lista de movimentações",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "quantidade": {
+                                                "type": "integer"
+                                            },
+                                            "dataMovimentacao": {
+                                                "type": "string"
+                                            },
+                                            "id_pedido": {
+                                                "type": "integer"
+                                            },
+                                            "id_produto": {
+                                                "type": "integer"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            },
+                                            "updated_at": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Movimentações"
+                ],
+                "summary": "Registrar uma nova movimentação",
+                "operationId": "7b3d3fdb8e23df0b3df9dc6a3d9f41d1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "dataMovimentacao": {
+                                        "type": "string"
+                                    },
+                                    "id_pedido": {
+                                        "type": "integer"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Movimentação registrada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "dataMovimentacao": {
+                                            "type": "string",
+                                            "example": "2024-06-02"
+                                        },
+                                        "id_pedido": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/movimentacoes/{id}": {
+            "get": {
+                "tags": [
+                    "Movimentações"
+                ],
+                "summary": "Buscar movimentação pelo ID",
+                "operationId": "5f815bec3c88bc0c757c9007aae658a9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da movimentação",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Movimentação encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "dataMovimentacao": {
+                                            "type": "string"
+                                        },
+                                        "id_pedido": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Movimentação não encontrada"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Movimentações"
+                ],
+                "summary": "Atualizar uma movimentação pelo ID",
+                "operationId": "b617ecf4490cfec0da453424bdc36569",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da movimentação",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "quantidade": {
+                                        "type": "integer"
+                                    },
+                                    "dataMovimentacao": {
+                                        "type": "string"
+                                    },
+                                    "id_pedido": {
+                                        "type": "integer"
+                                    },
+                                    "id_produto": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Movimentação atualizada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "quantidade": {
+                                            "type": "integer"
+                                        },
+                                        "dataMovimentacao": {
+                                            "type": "string"
+                                        },
+                                        "id_pedido": {
+                                            "type": "integer"
+                                        },
+                                        "id_produto": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Movimentação não encontrada"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Movimentações"
+                ],
+                "summary": "Remover uma movimentação pelo ID",
+                "operationId": "5bfe4325e24cebed36130bfa89599aff",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da movimentação",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Movimentação removida com sucesso"
+                    },
+                    "404": {
+                        "description": "Movimentação não encontrada"
+                    }
+                }
+            }
+        },
+        "/api/pedidos": {
+            "get": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "summary": "Lista todos os pedidos",
+                "operationId": "e848822b988b4e4cf96af0f71f29581c",
+                "responses": {
+                    "200": {
+                        "description": "Lista de pedidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "dataPedido": {
+                                                "type": "string",
+                                                "format": "date"
+                                            },
+                                            "dataPagamento": {
+                                                "type": "string",
+                                                "format": "date"
+                                            },
+                                            "moeda": {
+                                                "type": "string"
+                                            },
+                                            "valorTotal": {
+                                                "type": "number",
+                                                "format": "float"
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Pendente",
+                                                    "Em andamento",
+                                                    "Concluído",
+                                                    "Faltando produto",
+                                                    "Compra Realizada"
+                                                ]
+                                            },
+                                            "id_cliente": {
+                                                "type": "integer"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            },
+                                            "updated_at": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "summary": "Criar um novo pedido",
+                "operationId": "36884e796fd6f470919017f7ca543cd0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "dataPedido": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-06-01"
+                                    },
+                                    "dataPagamento": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-06-02"
+                                    },
+                                    "moeda": {
+                                        "type": "string",
+                                        "example": "BRL"
+                                    },
+                                    "valorTotal": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Pendente",
+                                            "Em andamento",
+                                            "Concluído",
+                                            "Faltando produto",
+                                            "Compra Realizada"
+                                        ]
+                                    },
+                                    "id_cliente": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pedido criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "dataPedido": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2024-06-01"
+                                        },
+                                        "dataPagamento": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2024-06-02"
+                                        },
+                                        "moeda": {
+                                            "type": "string",
+                                            "example": "BRL"
+                                        },
+                                        "valorTotal": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Pendente",
+                                                "Em andamento",
+                                                "Concluído",
+                                                "Faltando produto",
+                                                "Compra Realizada"
+                                            ]
+                                        },
+                                        "id_cliente": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pedidos/{id}": {
+            "get": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "summary": "Buscar pedido pelo ID",
+                "operationId": "41f9fd012dcc6f1915be1a7372c7d87b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pedido encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "dataPedido": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "dataPagamento": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "moeda": {
+                                            "type": "string"
+                                        },
+                                        "valorTotal": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Pendente",
+                                                "Em andamento",
+                                                "Concluído",
+                                                "Faltando produto",
+                                                "Compra Realizada"
+                                            ]
+                                        },
+                                        "id_cliente": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "summary": "Atualizar um pedido pelo ID",
+                "operationId": "c552afd071c0184bb7ded11c11c3bb41",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "dataPedido": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "dataPagamento": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "moeda": {
+                                        "type": "string"
+                                    },
+                                    "valorTotal": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Pendente",
+                                            "Em andamento",
+                                            "Concluído",
+                                            "Faltando produto",
+                                            "Compra Realizada"
+                                        ]
+                                    },
+                                    "id_cliente": {
+                                        "type": "integer"
+                                    },
+                                    "created_at": {
+                                        "type": "string"
+                                    },
+                                    "updated_at": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pedido atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "dataPedido": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2024-06-01"
+                                        },
+                                        "dataPagamento": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2024-06-02"
+                                        },
+                                        "moeda": {
+                                            "type": "string",
+                                            "example": "BRL"
+                                        },
+                                        "valorTotal": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Pendente",
+                                                "Em andamento",
+                                                "Concluído",
+                                                "Faltando produto",
+                                                "Compra Realizada"
+                                            ]
+                                        },
+                                        "id_cliente": {
+                                            "type": "integer"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "summary": "Deletar um pedido pelo ID",
+                "operationId": "cb1cb130ebbbdcc1c60f9092878c3834",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do pedido",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Pedido deletado com sucesso"
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/produtos": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Lista todos os produtos",
+                "operationId": "68de3067634ab4598e5d2fe1adc9b3da",
+                "responses": {
+                    "200": {
+                        "description": "Lista de produtos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "nome": {
+                                                "type": "string"
+                                            },
+                                            "SKU": {
+                                                "type": "string"
+                                            },
+                                            "UPC": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            },
+                                            "updated_at": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Criar um novo produto",
+                "operationId": "7c186445d191eabc09f48da5cb16782f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "SKU": {
+                                        "type": "string"
+                                    },
+                                    "UPC": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Produto criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "SKU": {
+                                            "type": "string"
+                                        },
+                                        "UPC": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/produtos/{id}": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Buscar produto pelo ID",
+                "operationId": "358d7f18152ccef1268ce3edd2bb7f6b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produto encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "SKU": {
+                                            "type": "string"
+                                        },
+                                        "UPC": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Produto não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Atualizar um produto pelo ID",
+                "operationId": "7b8dd7116a9918178331971ec5cca4b1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "SKU": {
+                                        "type": "string"
+                                    },
+                                    "UPC": {
+                                        "type": "string"
+                                    },
+                                    "created_at": {
+                                        "type": "string"
+                                    },
+                                    "updated_at": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Produto atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "SKU": {
+                                            "type": "string"
+                                        },
+                                        "UPC": {
+                                            "type": "string"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Produto não encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Deletar um produto pelo ID",
+                "operationId": "3d951d710d523eca6d888cbf7f3c698c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do produto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Produto deletado com sucesso"
+                    },
+                    "404": {
+                        "description": "Produto não encontrado"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Clientes",
+            "description": "Endpoints para gerenciar clientes"
+        },
+        {
+            "name": "Compras",
+            "description": "Endpoints para gerenciar compras"
+        },
+        {
+            "name": "Enderecos",
+            "description": "Endpoints para gerenciar endereços"
+        },
+        {
+            "name": "Estoques",
+            "description": "Endpoints para gerenciar estoques"
+        },
+        {
+            "name": "Itens de Pedido",
+            "description": "Endpoints para gerenciar itens de pedidos"
+        },
+        {
+            "name": "Movimentações",
+            "description": "Endpoints para gerenciar movimentações"
+        },
+        {
+            "name": "Pedidos",
+            "description": "Endpoints para gerenciar pedidos"
+        },
+        {
+            "name": "Produtos",
+            "description": "Endpoints para gerenciar produtos"
+        }
+    ]
+}
