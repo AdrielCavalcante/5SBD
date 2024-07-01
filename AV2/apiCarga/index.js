@@ -115,7 +115,7 @@ app.post('/entrega', (req, res) => {
 
 // Endpoint /statusEntrega
 app.get('/statusEntrega', (req, res) => {
-  const { id, codigoRastreamento } = req.body;
+  const { id, codigoRastreamento } = req.query;
 
   if (!id && !codigoRastreamento) {
     return res.status(400).send({ message: 'É necessário fornecer o ID do pedido ou o código de rastreamento' });

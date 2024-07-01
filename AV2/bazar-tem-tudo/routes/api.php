@@ -17,6 +17,7 @@ Route::get('/', function () {
 });
 
 Route::post('pedidos/{id}/enviar-para-entrega', [IntegrationService::class, 'enviarPedidoParaEntrega']);
+Route::get('/statusEntrega', [IntegrationService::class, 'consultarStatusEntrega']);
 
 Route::apiResource('clientes', ClienteController::class);
 Route::apiResource('compras', CompraController::class);

@@ -9,6 +9,7 @@ use App\Models\Pedido;
 use App\Models\ItemPedido;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 /**
  * @OA\Tag(
@@ -229,5 +230,85 @@ class IntegrationService
             Log::error('Exceção ao enviar pedido '.$pedido->id.' para a API de entrega: '.$e->getMessage());
             return ['success' => false, 'message' => 'Exceção ao enviar pedido para a API de entrega.'];
         }
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/api/statusEntrega",
+     *     tags={"Integração API"},
+     *     summary="Consulta o status da entrega de um pedido",
+     *     operationId="consultarStatusEntrega",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="query",
+     *         description="ID do pedido a ser consultado",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="string",
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="codigoRastreamento",
+     *         in="query",
+     *         description="Código de rastreamento do pedido a ser consultado",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Status da entrega consultado com sucesso",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Seu pedido está a caminho e chegará hoje!"),
+     *             @OA\Property(property="diasFaltando", type="integer", example=1)
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="ID do pedido ou código de rastreamento não fornecido",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="É necessário fornecer o ID do pedido ou o código de rastreamento")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Pedido ou código de rastreamento não encontrado",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Pedido ou código de rastreamento não encontrado")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Erro ao buscar status de entrega",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="Erro ao buscar status de entrega")
+     *         )
+     *     )
+     * )
+     */
+    public function consultarStatusEntrega(Request $request)
+    {
+        $url = 'http://localhost:3000/statusEntrega';
+
+        // Valida a requisição para garantir que o ID ou o código de rastreamento estejam presentes
+        $request->validate([
+            'id' => 'nullable|string',
+            'codigoRastreamento' => 'nullable|string',
+        ]);
+
+        // Verifica se ao menos um dos parâmetros foi fornecido
+        if (!$request->has('id') && !$request->has('codigoRastreamento')) {
+            return response()->json(['message' => 'É necessário fornecer o ID do pedido ou o código de rastreamento'], 400);
+        }
+
+        // Envia a requisição GET para o endpoint externo
+        $response = Http::get($url, [
+            'id' => $request->query('id'),
+            'codigoRastreamento' => $request->query('codigoRastreamento'),
+        ]);
+
+        // Retorna a resposta do endpoint externo
+        return response()->json($response->json(), $response->status());
     }
 }
