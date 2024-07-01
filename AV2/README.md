@@ -25,6 +25,14 @@ $ php artisan migrate
 Link para acessar o Swagger, durante execução:
 <http://127.0.0.1:8000/api/docs#>
 
+##### Em app/Services, temos a lógica de integração do sistema.
+- IntegrationService.php - Conecta a serviços externos como API de carga de pedidos e Entrega
+- InventoryService - Lógica do processamento do pedido e movimentação de estoque
+
+##### Em app/Console, temos a lógica que executa o CRONJOB
+- no Kernel.php é configurado o comando que você deve configurar no seu CRON ou no Agendador de Tarefas
+- por exemplo: `php artisan run:cron-market` - Que executa a importação dos pedidos da API e Processa os pedidos
+
 ---
 
 ## Procedimento Node
@@ -45,5 +53,11 @@ $ npm install
 $ node index.js
 ```
 
-Link para acessar o JSON Fake, durante execução:
+Link para acessar o JSON Fake pra carga, durante execução:
 <http://localhost:3000/carga>
+
+Link para acessar o JSON Fake pra cadastrar na entrega, o pedido, durante execução:
+<http://localhost:3000/entrega>
+
+Link para acessar o JSON Fake pra consultar o status da entrega, durante execução:
+<http://localhost:3000/statusEntrega>
