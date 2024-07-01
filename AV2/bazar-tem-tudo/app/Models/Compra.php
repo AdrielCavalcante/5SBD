@@ -10,6 +10,7 @@ class Compra extends Model
         'quantidade',
         'data_compra',
         'id_produto',
+        'comprado'
     ];
 
     public function produto()

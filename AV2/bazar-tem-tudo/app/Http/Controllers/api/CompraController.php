@@ -27,9 +27,10 @@ class CompraController extends BaseController
      *             @OA\Items(
      *                 type="object",
      *                 @OA\Property(property="id", type="integer"),
-     *                 @OA\Property(property="produto_id", type="integer"),
+     *                 @OA\Property(property="id_produto", type="integer"),
      *                 @OA\Property(property="quantidade", type="integer"),
      *                 @OA\Property(property="valor_unitario", type="number", format="float"),
+     *                 @OA\Property(property="comprado", type="boolean"),
      *                 @OA\Property(property="created_at", type="string", format="date-time"),
      *                 @OA\Property(property="updated_at", type="string", format="date-time"),
      *             )
@@ -54,6 +55,7 @@ class CompraController extends BaseController
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="data_compra", type="string", example="2024-06-29"),
      *             @OA\Property(property="id_produto", type="integer"),
+     *             @OA\Property(property="comprado", type="boolean", example="false"),
      *         )
      *     ),
      *     @OA\Response(
@@ -62,9 +64,10 @@ class CompraController extends BaseController
      *         @OA\JsonContent(
      *             type="object",
      *             @OA\Property(property="id", type="integer"),
-     *             @OA\Property(property="produto_id", type="integer"),
+     *             @OA\Property(property="id_produto", type="integer"),
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="valor_unitario", type="number", format="float"),
+     *             @OA\Property(property="comprado", type="boolean", example="false"),
      *             @OA\Property(property="created_at", type="string", format="date-time"),
      *             @OA\Property(property="updated_at", type="string", format="date-time"),
      *         )
@@ -97,9 +100,10 @@ class CompraController extends BaseController
      *         @OA\JsonContent(
      *             type="object",
      *             @OA\Property(property="id", type="integer"),
-     *             @OA\Property(property="produto_id", type="integer"),
+     *             @OA\Property(property="id_produto", type="integer"),
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="valor_unitario", type="number", format="float"),
+     *             @OA\Property(property="comprado", type="boolean", example="false"),
      *             @OA\Property(property="created_at", type="string", format="date-time"),
      *             @OA\Property(property="updated_at", type="string", format="date-time"),
      *         )
@@ -137,6 +141,7 @@ class CompraController extends BaseController
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="data_compra", type="string", example="2024-06-29"),
      *             @OA\Property(property="id_produto", type="integer"),
+     *             @OA\Property(property="comprado", type="boolean", example="false"),
      *             @OA\Property(property="created_at", type="string", format="date-time"),
      *             @OA\Property(property="updated_at", type="string", format="date-time")
      *         )
@@ -150,6 +155,7 @@ class CompraController extends BaseController
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="data_compra", type="string", format="date"),
      *             @OA\Property(property="id_produto", type="integer"),
+     *             @OA\Property(property="comprado", type="boolean", example="false"),
      *             @OA\Property(property="created_at", type="string", format="date-time"),
      *             @OA\Property(property="updated_at", type="string", format="date-time"),
      *         )

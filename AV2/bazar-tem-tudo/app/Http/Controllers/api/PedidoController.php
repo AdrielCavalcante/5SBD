@@ -26,7 +26,7 @@ class PedidoController extends BaseController
      *             type="array",
      *             @OA\Items(
      *                 type="object",
-     *                 @OA\Property(property="id", type="integer"),
+     *                 @OA\Property(property="id", type="string"),
      *                 @OA\Property(property="dataPedido", type="string", format="date"),
      *                 @OA\Property(property="dataPagamento", type="string", format="date"),
      *                 @OA\Property(property="moeda", type="string"),
@@ -54,6 +54,7 @@ class PedidoController extends BaseController
      *         required=true,
      *         @OA\JsonContent(
      *             type="object",
+     *             @OA\Property(property="id", type="string", example="ZLS287"),
      *             @OA\Property(property="dataPedido", type="string", format="date", example="2024-06-01"),
      *             @OA\Property(property="dataPagamento", type="string", format="date", example="2024-06-02"),
      *             @OA\Property(property="moeda", type="string", example="BRL"),
@@ -67,7 +68,7 @@ class PedidoController extends BaseController
      *         description="Pedido criado com sucesso",
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string"),
      *             @OA\Property(property="dataPedido", type="string", format="date", example="2024-06-01"),
      *             @OA\Property(property="dataPagamento", type="string", format="date", example="2024-06-02"),
      *             @OA\Property(property="moeda", type="string", example="BRL"),
@@ -97,7 +98,7 @@ class PedidoController extends BaseController
      *         required=true,
      *         description="ID do pedido",
      *         @OA\Schema(
-     *             type="integer"
+     *             type="string"
      *         )
      *     ),
      *     @OA\Response(
@@ -105,7 +106,7 @@ class PedidoController extends BaseController
      *         description="Pedido encontrado",
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string"),
      *             @OA\Property(property="dataPedido", type="string", format="date"),
      *             @OA\Property(property="dataPagamento", type="string", format="date"),
      *             @OA\Property(property="moeda", type="string"),
@@ -138,14 +139,14 @@ class PedidoController extends BaseController
      *         required=true,
      *         description="ID do pedido",
      *         @OA\Schema(
-     *             type="integer"
+     *             type="string"
      *         )
      *     ),
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string", example="ZLS287", description="ID do pedido"),
      *             @OA\Property(property="dataPedido", type="string", format="date"),
      *             @OA\Property(property="dataPagamento", type="string", format="date"),
      *             @OA\Property(property="moeda", type="string"),
@@ -161,7 +162,7 @@ class PedidoController extends BaseController
      *         description="Pedido atualizado com sucesso",
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string"),
      *             @OA\Property(property="dataPedido", type="string", format="date", example="2024-06-01"),
      *             @OA\Property(property="dataPagamento", type="string", format="date", example="2024-06-02"),
      *             @OA\Property(property="moeda", type="string", example="BRL"),
@@ -196,7 +197,7 @@ class PedidoController extends BaseController
      *         required=true,
      *         description="ID do pedido",
      *         @OA\Schema(
-     *             type="integer"
+     *             type="string"
      *         )
      *     ),
      *     @OA\Response(

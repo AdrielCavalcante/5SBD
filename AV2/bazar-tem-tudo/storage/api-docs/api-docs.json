@@ -304,7 +304,7 @@
                                             "id": {
                                                 "type": "integer"
                                             },
-                                            "produto_id": {
+                                            "id_produto": {
                                                 "type": "integer"
                                             },
                                             "quantidade": {
@@ -313,6 +313,9 @@
                                             "valor_unitario": {
                                                 "type": "number",
                                                 "format": "float"
+                                            },
+                                            "comprado": {
+                                                "type": "boolean"
                                             },
                                             "created_at": {
                                                 "type": "string",
@@ -352,6 +355,10 @@
                                     },
                                     "id_produto": {
                                         "type": "integer"
+                                    },
+                                    "comprado": {
+                                        "type": "boolean",
+                                        "example": "false"
                                     }
                                 },
                                 "type": "object"
@@ -369,7 +376,7 @@
                                         "id": {
                                             "type": "integer"
                                         },
-                                        "produto_id": {
+                                        "id_produto": {
                                             "type": "integer"
                                         },
                                         "quantidade": {
@@ -378,6 +385,10 @@
                                         "valor_unitario": {
                                             "type": "number",
                                             "format": "float"
+                                        },
+                                        "comprado": {
+                                            "type": "boolean",
+                                            "example": "false"
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -424,7 +435,7 @@
                                         "id": {
                                             "type": "integer"
                                         },
-                                        "produto_id": {
+                                        "id_produto": {
                                             "type": "integer"
                                         },
                                         "quantidade": {
@@ -433,6 +444,10 @@
                                         "valor_unitario": {
                                             "type": "number",
                                             "format": "float"
+                                        },
+                                        "comprado": {
+                                            "type": "boolean",
+                                            "example": "false"
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -489,6 +504,10 @@
                                     "id_produto": {
                                         "type": "integer"
                                     },
+                                    "comprado": {
+                                        "type": "boolean",
+                                        "example": "false"
+                                    },
                                     "created_at": {
                                         "type": "string",
                                         "format": "date-time"
@@ -522,6 +541,10 @@
                                         },
                                         "id_produto": {
                                             "type": "integer"
+                                        },
+                                        "comprado": {
+                                            "type": "boolean",
+                                            "example": "false"
                                         },
                                         "created_at": {
                                             "type": "string",
@@ -1266,7 +1289,7 @@
                                     "items": {
                                         "properties": {
                                             "id": {
-                                                "type": "integer"
+                                                "type": "string"
                                             },
                                             "valor": {
                                                 "type": "number",
@@ -1308,6 +1331,10 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "287894"
+                                    },
                                     "valor": {
                                         "type": "number",
                                         "format": "float"
@@ -1335,7 +1362,7 @@
                                 "schema": {
                                     "properties": {
                                         "id": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "valor": {
                                             "type": "number",
@@ -1379,7 +1406,7 @@
                         "description": "ID do item de pedido",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -1391,7 +1418,7 @@
                                 "schema": {
                                     "properties": {
                                         "id": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "valor": {
                                             "type": "number",
@@ -1436,7 +1463,7 @@
                         "description": "ID do item de pedido",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -1447,7 +1474,8 @@
                             "schema": {
                                 "properties": {
                                     "id": {
-                                        "type": "integer"
+                                        "type": "string",
+                                        "example": "287894"
                                     },
                                     "valor": {
                                         "type": "number",
@@ -1482,7 +1510,7 @@
                                 "schema": {
                                     "properties": {
                                         "id": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "valor": {
                                             "type": "number",
@@ -1527,7 +1555,7 @@
                         "description": "ID do item de pedido",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -1567,7 +1595,7 @@
                                                 "type": "string"
                                             },
                                             "id_pedido": {
-                                                "type": "integer"
+                                                "type": "string"
                                             },
                                             "id_produto": {
                                                 "type": "integer"
@@ -1603,10 +1631,12 @@
                                         "type": "integer"
                                     },
                                     "dataMovimentacao": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "example": "2024-06-02"
                                     },
                                     "id_pedido": {
-                                        "type": "integer"
+                                        "type": "string",
+                                        "example": "ZLS287"
                                     },
                                     "id_produto": {
                                         "type": "integer"
@@ -1635,7 +1665,7 @@
                                             "example": "2024-06-02"
                                         },
                                         "id_pedido": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "id_produto": {
                                             "type": "integer"
@@ -1690,7 +1720,7 @@
                                             "type": "string"
                                         },
                                         "id_pedido": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "id_produto": {
                                             "type": "integer"
@@ -1742,7 +1772,8 @@
                                         "type": "string"
                                     },
                                     "id_pedido": {
-                                        "type": "integer"
+                                        "type": "string",
+                                        "example": "ZLS287"
                                     },
                                     "id_produto": {
                                         "type": "integer"
@@ -1770,7 +1801,7 @@
                                             "type": "string"
                                         },
                                         "id_pedido": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "id_produto": {
                                             "type": "integer"
@@ -1836,7 +1867,7 @@
                                     "items": {
                                         "properties": {
                                             "id": {
-                                                "type": "integer"
+                                                "type": "string"
                                             },
                                             "dataPedido": {
                                                 "type": "string",
@@ -1893,6 +1924,10 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "ZLS287"
+                                    },
                                     "dataPedido": {
                                         "type": "string",
                                         "format": "date",
@@ -1938,7 +1973,7 @@
                                 "schema": {
                                     "properties": {
                                         "id": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "dataPedido": {
                                             "type": "string",
@@ -2000,7 +2035,7 @@
                         "description": "ID do pedido",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -2012,7 +2047,7 @@
                                 "schema": {
                                     "properties": {
                                         "id": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "dataPedido": {
                                             "type": "string",
@@ -2072,7 +2107,7 @@
                         "description": "ID do pedido",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -2083,7 +2118,9 @@
                             "schema": {
                                 "properties": {
                                     "id": {
-                                        "type": "integer"
+                                        "description": "ID do pedido",
+                                        "type": "string",
+                                        "example": "ZLS287"
                                     },
                                     "dataPedido": {
                                         "type": "string",
@@ -2133,7 +2170,7 @@
                                 "schema": {
                                     "properties": {
                                         "id": {
-                                            "type": "integer"
+                                            "type": "string"
                                         },
                                         "dataPedido": {
                                             "type": "string",
@@ -2196,7 +2233,7 @@
                         "description": "ID do pedido",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -2477,6 +2514,97 @@
                     }
                 }
             }
+        },
+        "/api/pedidos/{id}/enviar-para-entrega": {
+            "post": {
+                "tags": [
+                    "Integração API"
+                ],
+                "summary": "Envia um pedido para a API de entrega",
+                "description": "Envia um pedido para a API de entrega.",
+                "operationId": "enviarPedidoParaEntrega",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do pedido a ser enviado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pedido enviado com sucesso para a API de entrega",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "mensagem": {
+                                            "type": "string",
+                                            "example": "O pedido está sendo processado e será enviado em breve."
+                                        },
+                                        "diasEstimadosEntrega": {
+                                            "type": "integer",
+                                            "example": 5
+                                        },
+                                        "codigoRastreamento": {
+                                            "type": "string",
+                                            "example": "ABC123"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pedido não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pedido não encontrado."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao enviar pedido para a API de entrega",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Erro ao enviar pedido para a API de entrega."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "tags": [
@@ -2511,6 +2639,10 @@
         {
             "name": "Produtos",
             "description": "Endpoints para gerenciar produtos"
+        },
+        {
+            "name": "Integração API",
+            "description": "Integra com serviços externos"
         }
     ]
 }

@@ -18,7 +18,7 @@ class Movimentacao extends Model
     
     public function pedido()
     {
-        return $this->belongsTo(Pedido::class);
+        return $this->belongsTo(Pedido::class, 'id_pedido', 'id');
     }
 
     public function produto()

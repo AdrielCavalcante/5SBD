@@ -10,12 +10,13 @@ use App\Http\Controllers\Api\ItemPedidoController;
 use App\Http\Controllers\Api\MovimentacaoController;
 use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\ProdutoController;
+use App\Services\IntegrationService;
 
 Route::get('/', function () {
     return response()->json(['message' => 'API Bazar Tem Tudo', 'status' => 'Conectado']);
 });
 
-Route::get('/clientes', [ClienteController::class, 'index']);
+Route::post('pedidos/{id}/enviar-para-entrega', [IntegrationService::class, 'enviarPedidoParaEntrega']);
 
 Route::apiResource('clientes', ClienteController::class);
 Route::apiResource('compras', CompraController::class);

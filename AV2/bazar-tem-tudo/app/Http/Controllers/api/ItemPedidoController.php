@@ -26,7 +26,7 @@ class ItemPedidoController extends BaseController
      *             type="array",
      *             @OA\Items(
      *                 type="object",
-     *                 @OA\Property(property="id", type="integer"),
+     *                 @OA\Property(property="id", type="string"),
      *                 @OA\Property(property="valor", type="number", format="float"),
      *                 @OA\Property(property="quantidade", type="integer"),
      *                 @OA\Property(property="id_pedido", type="integer"),
@@ -52,6 +52,7 @@ class ItemPedidoController extends BaseController
      *         required=true,
      *         @OA\JsonContent(
      *             type="object",
+     *             @OA\Property(property="id", type="string", example="287894"),
      *             @OA\Property(property="valor", type="number", format="float"),
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="id_pedido", type="integer"),
@@ -63,7 +64,7 @@ class ItemPedidoController extends BaseController
      *         description="Item adicionado ao pedido com sucesso",
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string"),
      *             @OA\Property(property="valor", type="number", format="float"),
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="id_pedido", type="integer"),
@@ -91,7 +92,7 @@ class ItemPedidoController extends BaseController
      *         required=true,
      *         description="ID do item de pedido",
      *         @OA\Schema(
-     *             type="integer"
+     *             type="string"
      *         )
      *     ),
      *     @OA\Response(
@@ -99,7 +100,7 @@ class ItemPedidoController extends BaseController
      *         description="Item de pedido encontrado",
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string"),
      *             @OA\Property(property="valor", type="number", format="float"),
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="id_pedido", type="integer"),
@@ -130,14 +131,14 @@ class ItemPedidoController extends BaseController
      *         required=true,
      *         description="ID do item de pedido",
      *         @OA\Schema(
-     *             type="integer"
+     *             type="string"
      *         )
      *     ),
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string", example="287894"),
      *             @OA\Property(property="valor", type="number", format="float"),
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="id_pedido", type="integer"),
@@ -151,7 +152,7 @@ class ItemPedidoController extends BaseController
      *         description="Item de pedido atualizado com sucesso",
      *         @OA\JsonContent(
      *             type="object",
-     *             @OA\Property(property="id", type="integer"),
+     *             @OA\Property(property="id", type="string"),
      *             @OA\Property(property="valor", type="number", format="float"),
      *             @OA\Property(property="quantidade", type="integer"),
      *             @OA\Property(property="id_pedido", type="integer"),
@@ -184,7 +185,7 @@ class ItemPedidoController extends BaseController
      *         required=true,
      *         description="ID do item de pedido",
      *         @OA\Schema(
-     *             type="integer"
+     *             type="string"
      *         )
      *     ),
      *     @OA\Response(

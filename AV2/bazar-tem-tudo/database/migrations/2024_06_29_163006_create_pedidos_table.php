@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->date('dataPedido');
             $table->date('dataPagamento')->nullable();
             $table->string('moeda');

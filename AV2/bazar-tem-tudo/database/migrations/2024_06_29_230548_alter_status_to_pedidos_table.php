@@ -10,7 +10,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('pedidos', function (Blueprint $table) {
-            DB::statement("ALTER TABLE pedidos MODIFY COLUMN status ENUM('Pendente', 'Em andamento', 'Concluído', 'Faltando produto', 'Compra Realizada') DEFAULT 'Pendente'");
+            DB::statement("ALTER TABLE pedidos MODIFY COLUMN status ENUM('Pendente', 'Em andamento', 'Concluído', 'Faltando produto', 'Compra Realizada', 'Entrega') DEFAULT 'Pendente'");
         });
     }
 

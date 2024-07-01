@@ -10,6 +10,7 @@ class Pedido extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'dataPedido',
         'dataPagamento',
         'moeda',
@@ -17,6 +18,10 @@ class Pedido extends Model
         'status',
         'id_cliente'
     ];
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
 
     public function cliente()
     {

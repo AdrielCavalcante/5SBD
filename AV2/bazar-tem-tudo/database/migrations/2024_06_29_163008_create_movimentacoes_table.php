@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('quantidade');
             $table->date('dataMovimentacao');
-            $table->foreignId('id_pedido')->constrained('pedidos')->nullable();
+            $table->string('id_pedido')->nullable();
+            $table->foreign('id_pedido')->references('id')->on('pedidos');
             $table->foreignId('id_produto')->constrained('produtos');
             $table->timestamps();
         });
